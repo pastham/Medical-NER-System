@@ -2,7 +2,6 @@ import os
 import uuid
 import json
 import logging
-import preprocessing
 from flask import Flask, request, render_template, redirect, url_for, send_file, abort, flash
 from pypdf import PdfReader
 
@@ -284,6 +283,6 @@ def download_pdf(report_id):
         return abort(500)
 
 if __name__ == '__main__':
+    # Initialize pipelines on startup (CPU/lazy loading handles downloads automatically)
     logger.info("Initializing Flask server. Hugging Face models will lazy-load on first analysis.")
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=5000, debug=True)
