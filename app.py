@@ -283,6 +283,6 @@ def download_pdf(report_id):
         return abort(500)
 
 if __name__ == '__main__':
-    # Initialize pipelines on startup (CPU/lazy loading handles downloads automatically)
     logger.info("Initializing Flask server. Hugging Face models will lazy-load on first analysis.")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
