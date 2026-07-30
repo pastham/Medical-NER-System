@@ -12,3 +12,4 @@ easyocr>=1.7.0
 pytesseract>=0.3.13
 pypdfium2>=5.11.0
 gunicorn>=23.0.0
+gunicorn>=23.0.0
